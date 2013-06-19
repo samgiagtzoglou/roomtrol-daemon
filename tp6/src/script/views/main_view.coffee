@@ -10,3 +10,4 @@ $(document).ready () ->
   Tp.projectorPane2 = new Tp.ProjectorPaneView2
   Tp.projectorPane3 = new Tp.ProjectorPaneView3
   Tp.actionListView = new Tp.ActionListView
+  Tp.contextView = new Tp.ContextView
