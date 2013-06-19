@@ -22,8 +22,8 @@ Tp.ActionListView2 = Backbone.View.extend
       Tp.actions2.select event.currentTarget.id
 
     window.setTimeout (() =>
-      $('.action-list-item').unbind('click').click(actionItemClicked)), 500
+      $('#action-pane2 .action-list-item').unbind('click').click(actionItemClicked)), 500
 
   selectionChanged: () ->
-    $('.action-list-item').removeClass 'selected'
-    $("#" + Tp.actions2.selection?.id).addClass 'selected'
+    $('#action-pane2 .action-list-item').removeClass 'selected'
+    $("#action-pane2 #" + Tp.actions2.selection?.id).addClass 'selected'

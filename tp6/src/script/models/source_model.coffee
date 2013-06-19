@@ -6,7 +6,7 @@ class Source extends Backbone.Model
     Tp.devices.selected_projector[i] = true
     msg =
       resource: "source"
-      var: "source"#{Tp.devices.selected_projector}"
+      var: "source#{Tp.devices.selected_projector.indexOf(true) + 1}"
       value: this.get('name')
       projectors: Tp.devices.selected_projector
     Tp.server.trigger("state_set", msg)
