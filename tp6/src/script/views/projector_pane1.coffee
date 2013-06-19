@@ -24,7 +24,6 @@ Tp.ProjectorPaneView1 = Backbone.View.extend
       power_button1_label: "loading..."
       blank_button1_label: "loading..."
       mute_button1_label: "loading..."
-      selected1_label: "select"
     }).appendTo "#projector-pane1"
 
     # $(".projector-module").noisy(
@@ -44,8 +43,6 @@ Tp.ProjectorPaneView1 = Backbone.View.extend
     $('.volume-minus1').click(@volumeDown1Clicked)
     $('.volume-plus1').click(@volumeUp1Clicked)
     $('.mute-button1').click(@muteButton1Clicked)
-
-    $('.selected1').click(@selected1Clicked)
 
 
   projector1Changed: () ->

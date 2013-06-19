@@ -1,7 +1,9 @@
 slinky_require('../main.coffee')
 
 class Source extends Backbone.Model
-  select: ->
+  select: (i) ->
+    Tp.devices.selected_projector = [false,false,false]
+    Tp.devices.selected_projector[i] = true
     msg =
       resource: "source"
       var: "source"#{Tp.devices.selected_projector}"

@@ -5,9 +5,9 @@
 
   border-right: #888 solid 1px
   z-index: 1000
-  left: 0px
+  left: 350px
   width: 150px
-  top: 50px
+  
   img.status2-image
     +center-x(106px, inherit)
     top: 7px
@@ -89,10 +89,12 @@
 
     .audio2-label
       top: 120px
+      visibility: hidden
 
     .volume-plus2.button, .volume-minus2.button
       top: 145px
       width: 62px
+      visibility: hidden
       .label
         font-weight: 900
         font-size: 32px
@@ -100,9 +102,22 @@
     .volume-plus2.button
       right: 9px
       left: auto
+      visibility: hidden
     
     .volume-minus2.button .label
       font-size: 48px
+      visibility: hidden
 
     .mute-button2
       top: 185px
+      visibility: hidden
+
+    .selected2
+      top: 235px
+
+      &.selected
+        text-shadow: 0px -1px 0px #000
+        +box-shadow(#330 0 0 4px inset)
+        background: #666
+        .label
+          color: #D9D9D9

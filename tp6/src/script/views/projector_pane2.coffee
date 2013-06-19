@@ -24,7 +24,6 @@ Tp.ProjectorPaneView2 = Backbone.View.extend
       power_button2_label: "loading..."
       blank_button2_label: "loading..."
       mute_button2_label: "loading..."
-      selected2_label: "select"
     }).appendTo "#projector-pane2"
 
     # $(".projector-module").noisy(
@@ -44,9 +43,6 @@ Tp.ProjectorPaneView2 = Backbone.View.extend
     $('.volume-minus2').click(@volumeDown2Clicked)
     $('.volume-plus2').click(@volumeUp2Clicked)
     $('.mute-button2').click(@muteButton2Clicked)
-
-    $('.selected2').click(@selected2Clicked)
-
 
   projector2Changed: () ->
     state = Tp.devices.projector2.get('state')

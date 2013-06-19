@@ -1,1 +1,30 @@
-tp6.haml
+!!!5
+%html
+  %head
+    %title TP6
+    slinky_styles
+
+    - ["json2", "jquery-1.7.1", "jquery.tmpl", "jquery.noisy", "underscore", "backbone"].each do |f|
+      %script{:src => "script/vendor/#{f}.js"}
+    slinky_scripts
+  %body
+    #page
+      #top-bar
+        #room-label.label
+        #time-label.label
+      #main-view
+        #projector-pane1
+        #action-pane1
+          .action-module1
+            %ul.action-list1
+        #projector-pane2
+        #action-pane2
+          .action-module2
+            %ul.action-list2
+    #lost-connection
+      .title Server Connection Lost
+      .text The connection to the server has been lost. Try operating the equipment manually, or call 4959 for help.
+      .reconnection-attempt
+        %span Will attempt to reconnect in
+        %span.reconnection-counter 2 seconds
+      .reconnecting{:style => "display:none;"} Reconnecting...

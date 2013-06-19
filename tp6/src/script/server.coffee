@@ -37,7 +37,8 @@ class Server
   connected: (msg) ->
     # clear out our collections, in case this is reconnection
     Tp.sources.refresh []
-    Tp.actions.refresh []
+    Tp.actions1.refresh []
+    Tp.actions2.refresh []
     # set everything up
     room_hash =
       building: msg.building
@@ -50,20 +51,26 @@ class Server
       name: x.name,
       icon: x.icon
 
-    Tp.actions.add _.map msg.actions, (x) ->
+    Tp.actions1.add _.map msg.actions, (x) ->
       id: x._id
       name: x.name
       source: Tp.sources.get(x.settings?.source)
       prompt_projector: x.settings?.prompt_projector
       module: x.settings?.module
 
+    Tp.actions2.add _.map msg.actions, (x) ->
+      id: x._id
+      name: x.name
+      source: Tp.sources.get(x.settings?.source)
+      prompt_projector: x.settings?.prompt_projector
+      module: x.settings?.module
+
+
     # get initial states for devices
     this.state_get "projector1", "state"
     this.state_get "projector1", "video_mute"
     this.state_get "projector2", "state"
     this.state_get "projector2", "video_mute"
-    this.state_get "projector3", "state"
-    this.state_get "projector3", "video_mute"
     this.state_get "volume", "volume"
     this.state_get "volume", "mute"
     this.state_get "source", "source1"
