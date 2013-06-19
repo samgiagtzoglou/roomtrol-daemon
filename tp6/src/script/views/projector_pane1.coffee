@@ -111,13 +111,3 @@ Tp.ProjectorPaneView1 = Backbone.View.extend
   volumeDown1Clicked: () ->
     volume = Tp.devices.volume.get 'volume'
     Tp.devices.volume.state_set 'volume', volume - 0.1
-
-  selected1Clicked: () ->
-    if not Tp.devices.selected_projector[0]
-      Tp.devices.selected_projector[0] = true
-      $('.selected1').addClass 'selected'
-      $('.selected1 .label').html("deselect")
-    else
-      Tp.devices.selected_projector[0] = false
-      $('.selected1').removeClass 'selected'
-      $('.selected1 .label').html('select')

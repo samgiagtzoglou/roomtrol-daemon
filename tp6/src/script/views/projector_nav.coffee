@@ -7,7 +7,7 @@ Tp.ProjectorNavView = Backbone.View.extend
       this.render()
 
     _.bindAll this, 'projectorSelected'
-    $("#projector-pane1").hide()
+    $("#projector-pane1").show()
     $("#projector-pane2").hide()
     $("#projector-pane3").hide()
 
@@ -15,21 +15,27 @@ Tp.ProjectorNavView = Backbone.View.extend
     ($.tmpl "projector-nav-template", {}).appendTo "#projector-nav"
 
     console.log("Setting up handlers")
-    $('.left-button').click(@leftSelected)
-    $('.middle-button').click(@middleSelected)
-    $('.right-button').click(@rightSelected)
+    $('.left-button').click(@switchProjectorL)
+    $('.middle-button').click(@switchProjectorM)
+    $('.right-button').click(@switchProjectorR)
 
-  leftSelected: () ->
+  switchProjectorL: () ->
+    for j in [0..2] by 1
+      Tp.devices.selected_projector[j] = false
+      $("#projector-pane#{j+1}").hide()
+    Tp.devices.selected_projector[0] = true
     $("#projector-pane1").show()
-    $("#projector-pane2").hide()
-    $("#projector-pane3").hide()
 
-  middleSelected: () ->
-    $("#projector-pane1").hide()
+  switchProjectorM: () ->
+    for j in [0..2] by 1
+      Tp.devices.selected_projector[j] = false
+      $("#projector-pane#{j+1}").hide()
+    Tp.devices.selected_projector[1] = true
     $("#projector-pane2").show()
-    $("#projector-pane3").hide()
 
-  rightSelected: () ->
-    $("#projector-pane1").hide()
-    $("#projector-pane2").hide()
+  switchProjectorR: () ->
+    for j in [0..2] by 1
+      Tp.devices.selected_projector[j] = false
+      $("#projector-pane#{j+1}").hide()
+    Tp.devices.selected_projector[2] = true
     $("#projector-pane3").show()
