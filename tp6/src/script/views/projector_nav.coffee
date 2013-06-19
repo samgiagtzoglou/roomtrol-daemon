@@ -18,6 +18,7 @@ Tp.ProjectorNavView = Backbone.View.extend
     $('.left-button').click(@switchProjectorL)
     $('.middle-button').click(@switchProjectorM)
     $('.right-button').click(@switchProjectorR)
+    $(".left-button").addClass("selected")
 
   switchProjectorL: () ->
     for j in [0..2] by 1
@@ -25,6 +26,9 @@ Tp.ProjectorNavView = Backbone.View.extend
       $("#projector-pane#{j+1}").hide()
     Tp.devices.selected_projector[0] = true
     $("#projector-pane1").show()
+    $(".right-button").removeClass("selected")
+    $(".middle-button").removeClass("selected")
+    $(".left-button").addClass("selected")
 
   switchProjectorM: () ->
     for j in [0..2] by 1
@@ -32,6 +36,9 @@ Tp.ProjectorNavView = Backbone.View.extend
       $("#projector-pane#{j+1}").hide()
     Tp.devices.selected_projector[1] = true
     $("#projector-pane2").show()
+    $(".right-button").removeClass("selected")
+    $(".left-button").removeClass("selected")
+    $(".middle-button").addClass("selected")
 
   switchProjectorR: () ->
     for j in [0..2] by 1
@@ -39,3 +46,6 @@ Tp.ProjectorNavView = Backbone.View.extend
       $("#projector-pane#{j+1}").hide()
     Tp.devices.selected_projector[2] = true
     $("#projector-pane3").show()
+    $(".left-button").removeClass("selected")
+    $(".middle-button").removeClass("selected")
+    $(".right-button").addClass("selected")
